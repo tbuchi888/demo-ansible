@@ -1,0 +1,12 @@
+- hosts: ubuntu
+  gather_facts: false
+  tasks:
+        - shell: "{{ item }}"
+          with_items:
+            - 'hostname'
+            - 'cat /etc/os-release'
+            - 'uname -a'
+            - 'apt list --installed | grep "nginx"'
+          become: yes
+          register: command_results
+        - debug: var=command_results.results
