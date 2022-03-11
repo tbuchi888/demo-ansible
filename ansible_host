@@ -3,7 +3,7 @@ ubuntu01 ansible_host=172.17.100.4
 ubuntu02 ansible_host=172.17.100.5
 [win]
 win01 ansible_host=172.17.100.6
-#win02 ansible_host=172.17.100.7
+win02 ansible_host=172.17.100.7
 
 [ubuntu:vars]
 ansible_user=azureuser
