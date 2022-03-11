@@ -1,7 +1,19 @@
 [ubuntu]
-ubuntu01 ansible_host=52.155.126.110
-ubuntu02 ansible_host=20.210.115.172
+ubuntu01 ansible_host=172.17.100.4
+ubuntu02 ansible_host=172.17.100.5
+[win]
+win01 ansible_host=172.17.100.6
+#win02 ansible_host=172.17.100.7
 
 [ubuntu:vars]
 ansible_user=azureuser
 ansible_ssh_private_key_file=~/.ssh/id_azure
+
+[win:vars]
+ansible_user=test001
+ansible_password="T!1234567890"
+ansible_connection=winrm
+ansible_port=5985
+ansible_winrm_scheme=http
+ansible_winrm_transport=ntlm
+#ansible_winrm_server_cert_validation=ignore

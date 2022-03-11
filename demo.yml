@@ -6,7 +6,7 @@
             - 'hostname'
             - 'cat /etc/os-release'
             - 'uname -a'
-            - 'apt list --installed | grep "nginx"'
+            - 'apt list --installed'
           become: yes
           register: command_results
         - debug: var=command_results.results

@@ -1,0 +1,12 @@
+- hosts: win
+  gather_facts: false
+  tasks:
+        - win_shell: "{{ item }}"
+          with_items:
+            - 'hostname'
+            - |
+              New-Item -Path C:\temp -ItemType Directory
+              Remove-Item -Path C:\temp -Force -Recurse
+              $path_info = Get-Item -Path C:\temp
+              $path_info.FullName
+        - debug: var=command_results.results
