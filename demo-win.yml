@@ -9,4 +9,5 @@
               Remove-Item -Path C:\temp -Force -Recurse
               $path_info = Get-Item -Path C:\temp
               $path_info.FullName
+          register: command_results
         - debug: var=command_results.results
