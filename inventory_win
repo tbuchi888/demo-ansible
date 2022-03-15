@@ -1,0 +1,8 @@
+[windows]
+win01 ansible_hot=172.17.100.6
+[windows:vars]
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+ansible_winrm_transport=certificate
+ansible_winrm_cert_pem=/home/azureuser/.ssh/cert.pem
+ansible_winrm_cert_key_pem=/home/azureuser/.ssh/cert_key.pem
