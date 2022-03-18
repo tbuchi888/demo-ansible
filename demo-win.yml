@@ -5,9 +5,8 @@
           with_items:
             - 'hostname'
             - |
-              New-Item -Path C:\temp -ItemType Directory
-              Remove-Item -Path C:\temp -Force -Recurse
-              $path_info = Get-Item -Path C:\temp
-              $path_info.FullName
+                Get-ChildItem -Path('HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall','HKCU:SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall','HKLM:SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall') | % { Get-ItemProperty $_.PsPath | Select-Object DisplayName, DisplayVersion, Publisher }
+#            - |
+#                Get-ChildItem -Path "C:\Program Files" -Recurse
           register: command_results
         - debug: var=command_results.results
